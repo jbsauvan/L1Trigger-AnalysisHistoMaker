@@ -8,7 +8,7 @@ UCFLAGS = -O3 -Wall -gstabs+ -std=c++0x
 
 
 RUCFLAGS := $(shell root-config --cflags) -I./include/ -I../Core/include/ -I../TriggerCommon/include/ -I${EMUL_WRAPPER_BASE}/include/ -I${CMSSW_BASE}/src/ -I${CMSSW_RELEASE_BASE}/src/ 
-LIBS :=  $(shell root-config --libs) -lTreePlayer -lGenVector -L${EMUL_WRAPPER_BASE}/lib -lL1TEmulatorWrapper -L${CMSSW_BASE}/lib/slc6_amd64_gcc481/ -L${CMSSW_RELEASE_BASE}/lib/slc6_amd64_gcc481/ -lTreePlayer -lDataFormatsL1TCalorimeter -lDataFormatsL1Trigger -lDataFormatsCandidate -lCondFormatsL1TObjects -lL1TriggerL1TCalorimeter  
+LIBS :=  $(shell root-config --libs) -lTreePlayer -lGenVector -L${EMUL_WRAPPER_BASE}/lib -lL1TEmulatorWrapper -L${CMSSW_BASE}/lib/${SCRAM_ARCH} -L${CMSSW_RELEASE_BASE}/lib/${SCRAM_ARCH} -lTreePlayer -lDataFormatsL1TCalorimeter -lDataFormatsL1Trigger -lDataFormatsCandidate -lCondFormatsL1TObjects -lL1TriggerL1TCalorimeter  
 GLIBS := $(shell root-config --glibs)
 
 VPATH = ../Core/src:../TriggerCommon/src/:./src/
