@@ -1,0 +1,45 @@
+Histos: ZeroBias_Rate_
+
+# General event 
+h1f 0 nevents ' Number of events ' 1 0.5 1.5
+h1f 1 npv ' N_{PV} ' 100 0.5 100.5
+
+# Stage-2
+h1f 100 l1eg_all_pt ' p_{T} [GeV] ' 100 0. 100.
+h1f 101 l1eg_FG_pt ' p_{T} [GeV] ' 100 0. 100.
+h1f 102 l1eg_FG_HoE_pt ' p_{T} [GeV] ' 100 0. 100.
+h1f 105 l1eg_ID_pt ' p_{T} [GeV] ' 100 0. 100.
+h1f 106 l1eg_iso_pt ' p_{T} [GeV] ' 100 0. 100.
+
+# Stage-1
+h1f 120 l1eg_Stage1_all_pt ' p_{T} [GeV] ' 100 0. 100.
+h1f 121 l1eg_Stage1_iso_pt ' p_{T} [GeV] ' 100 0. 100.
+
+# Stage-2
+h1f 200 l1eg_all_eta ' i#eta ' 60 -30. 30.
+h1f 201 l1eg_FG_eta ' i#eta ' 60 -30. 30.
+h1f 202 l1eg_FG_HoE_eta ' i#eta ' 60 -30. 30.
+h1f 205 l1eg_ID_eta ' i#eta ' 60 -30. 30.
+h1f 206 l1eg_iso_eta ' i#eta ' 60 -30. 30.
+
+# Stage-1
+h1f 220 l1eg_Stage1_all_eta ' p_{T} [GeV] ' 60 -30. 30.
+h1f 221 l1eg_Stage1_iso_eta ' p_{T} [GeV] ' 60 -30. 30.
+
+
+### Stage-2 in EE
+h1f 300 l1eg_EE_all_pt ' p_{T} [GeV] ' 100 0. 100.
+h1f 301 l1eg_EE_FG_pt ' p_{T} [GeV] ' 100 0. 100.
+h1f 302 l1eg_EE_FG_HoE_pt ' p_{T} [GeV] ' 100 0. 100.
+h1f 305 l1eg_EE_ID_pt ' p_{T} [GeV] ' 100 0. 100.
+h1f 306 l1eg_EE_iso_pt ' p_{T} [GeV] ' 100 0. 100.
+# Stage-2  double electron in EE
+h1f 320 l1eg2_EE_all_pt ' p_{T} [GeV] ' 100 0. 100.
+h1f 321 l1eg2_EE_FG_pt ' p_{T} [GeV] ' 100 0. 100.
+h1f 322 l1eg2_EE_FG_HoE_pt ' p_{T} [GeV] ' 100 0. 100.
+h1f 325 l1eg2_EE_ID_pt ' p_{T} [GeV] ' 100 0. 100.
+h1f 326 l1eg2_EE_iso_pt ' p_{T} [GeV] ' 100 0. 100.
+
+
+end_Histos
+

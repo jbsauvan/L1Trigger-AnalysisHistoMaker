@@ -1,0 +1,137 @@
+Histos: TagAndProbe_TurnOn_Stage2_Rebuilt_, TagAndProbe_TurnOn_Stage2_Ref_(10000), TagAndProbe_TurnOn_Stage1_(20000)
+
+# General event 
+h1f 0 nevents ' Number of events ' 1 0.5 1.5
+h1f 1 npv ' N_{PV} ' 100 0.5 100.5
+
+h1f 2 shape ' shape ' 71 0.5 70.5
+
+
+## Check reco
+1binvbh1f 10 tagele_pt ' p_{T}(tag) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150.
+h1f 11 tagele_eta ' #eta(tag) ' 30 -3. 3.
+h1f 12 tagele_phi ' #phi(tag) ' 30 -3.1416 3.1416
+h1f 13 tagele_charge ' charge(tag) ' 3 -1.5 1.5
+1binvbh1f 14 tagele_bdt ' BDT(tag) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
+
+1binvbh1f 20 probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150.
+h1f 21 probeele_eta ' #eta(probe) ' 30 -3. 3.
+h1f 22 probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
+h1f 23 probeele_charge ' charge(probe) ' 3 -1.5 1.5
+1binvbh1f 24 probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
+1binvbh1f 25 probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+
+h1f 30 pairele_mass ' M(ee) ' 60 60. 120.
+h1f 31 pairele_pt   ' p_{T}(ee) ' 100 0. 100.
+h1f 32 pairele_y   ' y(ee) ' 60 -3. 3.
+h1f 33 pairele_phi   ' #phi(ee) ' 60 -3.1416 3.1416
+
+
+## Check reco-L1 matching
+1binvbh1f 100 L1matched_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150.
+h1f 101 L1matched_probeele_eta ' #eta(probe) ' 30 -3. 3.
+h1f 102 L1matched_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
+1binvbh1f 104 L1matched_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
+1binvbh1f 105 L1matched_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+
+## Check FG efficiency
+1binvbh1f 200 L1FG_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150.
+h1f 201 L1FG_probeele_eta ' #eta(probe) ' 30 -3. 3.
+h1f 202 L1FG_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
+1binvbh1f 204 L1FG_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
+1binvbh1f 205 L1FG_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+
+## Check H/E efficiency
+1binvbh1f 300 L1HoE_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150.
+h1f 301 L1HoE_probeele_eta ' #eta(probe) ' 30 -3. 3.
+h1f 302 L1HoE_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
+1binvbh1f 304 L1HoE_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
+1binvbh1f 305 L1HoE_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+
+## Check shape efficiency
+1binvbh1f 400 L1shape_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150.
+h1f 401 L1shape_probeele_eta ' #eta(probe) ' 30 -3. 3.
+h1f 402 L1shape_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
+1binvbh1f 404 L1shape_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
+1binvbh1f 405 L1shape_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+
+## Check iso efficiency
+1binvbh1f 500 L1iso_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150.
+h1f 501 L1iso_probeele_eta ' #eta(probe) ' 30 -3. 3.
+h1f 502 L1iso_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
+1binvbh1f 504 L1iso_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
+1binvbh1f 505 L1iso_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+
+1binvbh1f 510 L1IDiso_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150.
+h1f 511 L1IDiso_probeele_eta ' #eta(probe) ' 30 -3. 3.
+h1f 512 L1IDiso_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
+1binvbh1f 514 L1IDiso_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
+1binvbh1f 515 L1IDiso_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+
+## Check new H/E and shapes efficiency
+1binvbh1f 600 L1HoEnew_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150 
+h1f 601 L1HoEnew_probeele_eta ' #eta(probe) ' 30 -3. 3.
+h1f 602 L1HoEnew_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
+1binvbh1f 604 L1HoEnew_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
+1binvbh1f 605 L1HoEnew_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+#
+1binvbh1f 610 L1ShapeNew_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150 
+h1f 611 L1ShapeNew_probeele_eta ' #eta(probe) ' 30 -3. 3.
+h1f 612 L1ShapeNew_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
+1binvbh1f 614 L1ShapeNew_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
+1binvbh1f 615 L1ShapeNew_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+#
+1binvbh1f 620 L1HoEShapeNew_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150 
+h1f 621 L1HoEShapeNew_probeele_eta ' #eta(probe) ' 30 -3. 3.
+h1f 622 L1HoEShapeNew_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
+1binvbh1f 624 L1HoEShapeNew_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
+1binvbh1f 625 L1HoEShapeNew_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+#
+1binvbh1f 630 L1FGHoEShapeNew_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150 
+h1f 631 L1FGHoEShapeNew_probeele_eta ' #eta(probe) ' 30 -3. 3.
+h1f 632 L1FGHoEShapeNew_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
+1binvbh1f 634 L1FGHoEShapeNew_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
+1binvbh1f 635 L1FGHoEShapeNew_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+
+## Check reco scale and resolution
+1binvh1f 700  recoele_pRatio_vs_eta ' (p^{reco} - p^{gen})/p^{reco} ' 1000 -1. 1.
+ETA 5
+0. 0.5 1.0 1.5 2.0 2.5
+
+## Check L1 position, scale and resolution
+1binvh1f 1000  L1matched_probeele_ptRatio_vs_eta ' (E_{T}^{L1} - p_{T}^{reco})/p_{T}^{reco} ' 1000 -1. 1.
+ETA 5
+0. 0.5 1.0 1.5 2.0 2.5
+#
+1binvh1f 1010  L1matched_probeele_ptRatio_vs_pt ' (E_{T}^{L1} - p_{T}^{reco})/p_{T}^{reco} ' 1000 -1. 1.
+PT 5
+7. 15. 25. 35. 45. 100.
+#
+1binvh1f 1020  L1matched_probeele_etRatio_vs_eta ' (E_{T}^{L1} - E_{T}^{reco})/E_{T}^{reco} ' 1000 -1. 1.
+ETA 5
+0. 0.5 1.0 1.5 2.0 2.5
+#
+1binvh1f 1030  L1matched_probeele_etRatio_vs_pt ' (E_{T}^{L1} - E_{T}^{reco})/E_{T}^{reco} ' 1000 -1. 1.
+PT 5
+7. 15. 25. 35. 45. 100.
+#
+1binvh1f 1040  L1matched_probeele_deta_vs_eta ' #eta^{L1}-#eta^{reco} ' 1000 -1. 1.
+ETA 5
+0. 0.5 1.0 1.5 2.0 2.5
+#
+1binvh1f 1050  L1matched_probeele_deta_vs_pt ' #eta^{L1}-#eta^{reco} ' 1000 -1. 1.
+PT 5
+7. 15. 25. 35. 45. 100.
+#
+1binvh1f 1060  L1matched_probeele_dphi_vs_eta ' #phi^{L1}-#phi^{reco} ' 1000 -1. 1.
+ETA 5
+0. 0.5 1.0 1.5 2.0 2.5
+#
+1binvh1f 1070  L1matched_probeele_dphi_vs_pt ' #phi^{L1}-#phi^{reco} ' 1000 -1. 1.
+PT 5
+7. 15. 25. 35. 45. 100.
+
+
+
+end_Histos
+

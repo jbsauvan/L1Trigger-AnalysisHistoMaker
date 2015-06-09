@@ -1,0 +1,74 @@
+Histos: TagAndProbe_TurnOn_Stage2_Rebuilt_, TagAndProbe_TurnOn_Stage1_(10000)
+
+# General event 
+h1f 0 nevents ' Number of events ' 1 0.5 1.5
+h1f 1 npv ' N_{PV} ' 100 0.5 100.5
+
+## Check reco
+h1f 10 tagele_pt ' p_{T}(tag) ' 100 0. 100.
+h1f 11 tagele_eta ' #eta(tag) ' 60 -3. 3.
+h1f 12 tagele_phi ' #phi(tag) ' 60 -3.1416 3.1416
+h1f 13 tagele_charge ' charge(tag) ' 3 -1.5 1.5
+h1f 14 tagele_bdt ' BDT(tag) ' 100 -1. 1.
+
+h1f 20 probeele_pt ' p_{T}(probe) ' 100 0. 100.
+h1f 21 probeele_eta ' #eta(probe) ' 60 -3. 3.
+h1f 22 probeele_phi ' #phi(probe) ' 60 -3.1416 3.1416
+h1f 23 probeele_charge ' charge(probe) ' 3 -1.5 1.5
+h1f 24 probeele_bdt ' BDT(probe) ' 100 -1. 1.
+
+h1f 30 pairele_mass ' M(ee) ' 60 60. 120.
+h1f 31 pairele_pt   ' p_{T}(ee) ' 100 0. 100.
+h1f 32 pairele_y   ' y(ee) ' 60 -3. 3.
+h1f 33 pairele_phi   ' #phi(ee) ' 60 -3.1416 3.1416
+
+
+## Check reco-L1 matching
+h1f 100 L1matched_probeele_pt ' p_{T}(probe) ' 100 0. 100.
+h1f 101 L1matched_probeele_eta ' #eta(probe) ' 60 -3. 3.
+h1f 102 L1matched_probeele_phi ' #phi(probe) ' 60 -3.1416 3.1416
+h1f 104 L1matched_probeele_bdt ' BDT(probe) ' 100 -1. 1.
+
+## Check reco scale and resolution
+1binvh1f 700  recoele_pRatio_vs_eta ' (p^{reco} - p^{gen})/p^{reco} ' 1000 -1. 1.
+ETA 5
+0. 0.5 1.0 1.5 2.0 2.5
+
+## Energy resolution
+1binfh1f 1000  L1matched_probeele_ptRatio_vs_ieta ' (E_{T}^{L1} - p_{T}^{reco})/p_{T}^{reco} ' 1000 -1. 1.
+IETA 28 1. 0.5
+#
+1binfh1f 1030  L1matched_probeele_ptRatio_vs_eta ' (E_{T}^{L1} - p_{T}^{reco})/p_{T}^{reco} ' 1000 -1. 1.
+ETA 25 0.1 0.
+#
+2binvh1f 1060  L1matched_probeele_ptRatio_vs_ieta_pt ' (E_{T}^{L1} - p_{T}^{reco})/p_{T}^{reco} ' 1000 -1. 1.
+IETA 2
+0.5 17.5 28.5
+PT 5
+7. 15. 25. 35. 45. 100.
+#
+1binfh1f 1080  L1matched_probeele_etRatio_vs_ieta ' (E_{T}^{L1} - E_{T}^{reco})/E_{T}^{reco} ' 1000 -1. 1.
+IETA 28 1. 0.5
+#
+2binvh1f 1110  L1matched_probeele_etRatio_vs_ieta_pt ' (E_{T}^{L1} - E_{T}^{reco})/E_{T}^{reco} ' 1000 -1. 1.
+IETA 2
+0.5 17.5 28.5
+PT 5
+7. 15. 25. 35. 45. 100.
+
+
+h1f 5000 group ' group ' 10 0. 10.
+h1f 5001 ieta  ' ieta ' 65 -32.5 32.5
+h1f 5002 iphi  ' iphi ' 72 0.5 72.5
+h1f 5003 E  ' E ' 100 0. 100.
+h1f 5004 shape ' shape ' 128 -0.5 127.5
+h1f 5005 side ' side ' 2 -0.5 1.5
+h1f 5006 target ' E_{T}^{off}/E_{T}^{L1} ' 100 0. 5.
+h1f 5007 ptoff ' p_{T}^{off} ' 100 0. 100.
+h1f 5008 etl1 ' E_{T}^{L1} ' 100 0. 100.
+
+ntuple 5100 L1matched_probeele_tree ' ntuple ' group:ieta:iphi:E:shape:side:target:ptoff:etl1
+
+
+end_Histos
+
