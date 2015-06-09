@@ -53,4 +53,5 @@ clean:
 ../TriggerCommon/lib/libDictionary_C.so: ../TriggerCommon/include/libDictionary.C
 	@echo "> Generating dictionary"
 	@cd ../TriggerCommon/include && root -b -q libDictionary.C++
+	@mkdir -p ../TriggerCommon/lib/
 	@mv ../TriggerCommon/include/libDictionary_C.so ../TriggerCommon/lib/
