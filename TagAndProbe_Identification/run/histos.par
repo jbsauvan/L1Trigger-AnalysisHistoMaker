@@ -1,0 +1,72 @@
+Histos: TagAndProbe_Identification_Stage2_Rebuilt_
+
+# General event 
+h1f 0 nevents ' Number of events ' 1 0.5 1.5
+h1f 1 npv ' N_{PV} ' 100 0.5 100.5
+
+## Check reco
+h1f 10 tagele_pt ' p_{T}(tag) ' 100 0. 100.
+h1f 11 tagele_eta ' #eta(tag) ' 60 -3. 3.
+h1f 12 tagele_phi ' #phi(tag) ' 60 -3.1416 3.1416
+h1f 13 tagele_charge ' charge(tag) ' 3 -1.5 1.5
+h1f 14 tagele_bdt ' BDT(tag) ' 100 -1. 1.
+
+h1f 20 probeele_pt ' p_{T}(probe) ' 100 0. 100.
+h1f 21 probeele_eta ' #eta(probe) ' 60 -3. 3.
+h1f 22 probeele_phi ' #phi(probe) ' 60 -3.1416 3.1416
+h1f 23 probeele_charge ' charge(probe) ' 3 -1.5 1.5
+h1f 24 probeele_bdt ' BDT(probe) ' 100 -1. 1.
+
+h1f 30 pairele_mass ' M(ee) ' 60 60. 120.
+h1f 31 pairele_pt   ' p_{T}(ee) ' 100 0. 100.
+h1f 32 pairele_y   ' y(ee) ' 60 -3. 3.
+h1f 33 pairele_phi   ' #phi(ee) ' 60 -3.1416 3.1416
+
+
+## Check reco-L1 matching
+h1f 100 L1matched_probeele_pt ' p_{T}(probe) ' 100 0. 100.
+h1f 101 L1matched_probeele_eta ' #eta(probe) ' 60 -3. 3.
+h1f 102 L1matched_probeele_phi ' #phi(probe) ' 60 -3.1416 3.1416
+h1f 104 L1matched_probeele_bdt ' BDT(probe) ' 100 -1. 1.
+
+## Check reco scale and resolution
+1binvh1f 700  recoele_pRatio_vs_eta ' (p^{reco} - p^{gen})/p^{reco} ' 1000 -1. 1.
+ETA 5
+0. 0.5 1.0 1.5 2.0 2.5
+
+## Energy resolution
+1binfh1f 1000  L1matched_probeele_ptRatio_vs_ieta ' (E_{T}^{L1} - p_{T}^{reco})/p_{T}^{reco} ' 1000 -1. 1.
+IETA 28 1. 0.5
+#
+2binvh1f 1030  L1matched_probeele_ptRatio_vs_ieta_pt ' (E_{T}^{L1} - p_{T}^{reco})/p_{T}^{reco} ' 1000 -1. 1.
+IETA 2
+0.5 17.5 28.5
+PT 5
+7. 15. 25. 35. 45. 100.
+#
+1binfh1f 1050  L1matched_probeele_etRatio_vs_ieta ' (E_{T}^{L1} - E_{T}^{reco})/E_{T}^{reco} ' 1000 -1. 1.
+IETA 28 1. 0.5
+#
+2binvh1f 1080  L1matched_probeele_etRatio_vs_ieta_pt ' (E_{T}^{L1} - E_{T}^{reco})/E_{T}^{reco} ' 1000 -1. 1.
+IETA 2
+0.5 17.5 28.5
+PT 5
+7. 15. 25. 35. 45. 100.
+
+
+h1f 2000 l1eg_all_seedE ' E_{T}^{seed} [ADC] ' 100 0. 100.
+h1f 2001 l1eg_all_seedH ' H_{T}^{seed} [ADC] ' 100 0. 100.
+h1f 2002 l1eg_all_E ' E_{T}^{cluster} [ADC] ' 100 0. 100.
+h1f 2003 l1eg_all_ieta ' i#eta ' 60 -30. 30.
+h1f 2004 l1eg_all_HoE ' H/E ' 500 0. 5.
+h1f 2005 l1eg_all_FG ' FG ' 2 0. 2.
+h1f 2006 l1eg_all_shape ' shape ' 200 0. 200.
+h1f 2007 l1eg_all_offPt ' p_{T}^{offl} [GeV] ' 100 0. 100
+
+
+ntuple 3000 l1eg_all_tree ' tree for ID ' l1eg_all_seedE:l1eg_all_seedH:l1eg_all_E:l1eg_all_ieta:l1eg_all_HoE:l1eg_all_FG:l1eg_all_shape:l1eg_all_offPt
+
+
+
+end_Histos
+
