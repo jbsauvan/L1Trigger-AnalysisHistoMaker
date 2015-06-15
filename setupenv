@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+here=`pwd`
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$here/lib
+export ANHIMA_BASE=$here

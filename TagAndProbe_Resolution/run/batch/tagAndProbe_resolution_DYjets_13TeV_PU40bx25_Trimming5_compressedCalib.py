@@ -1,5 +1,10 @@
 from AnhimaBatchLauncher import AnhimaBatchLauncher
 import glob
+import os
+
+baseDir = os.environ["ANHIMA_BASE"]
+cmsswDir = os.environ["CMSSW_BASE"] 
+wrapperDir = os.environ["EMUL_WRAPPER_BASE"]
 
 inputBaseDir = "/data_CMS/cms/sauvan/L1/Ntuples/EGammaStage1Stage2"
 #inputTemplate = "v_2_2014-09-23/tree_electron_stage1_stage2_*.root"
@@ -14,7 +19,7 @@ for dataset in datasets:
 
 
 batch = AnhimaBatchLauncher()
-batch.exe = "/home/llr/cms/sauvan/L1_upgrade/AnHiMa2/TagAndProbe_Resolution/analysis.exe"
+batch.exe = "{}/TagAndProbe_Resolution/analysis.exe".format(baseDir)
 batch.name = "tagAndProbe_resolution_DYjets_13TeV_PU40bx25_Trimming5_CompressedCalib"
 batch.inputFiles = inputFiles
 batch.tree = "electronNtuplizer_electronTree"
@@ -24,27 +29,24 @@ batch.histoParameters = "../histos.par"
 batch.histoTag = "Histos"
 batch.nFilesPerJob = 2
 batch.queue = "cms"
-batch.cmsswDir = "/home/llr/cms/sauvan/CMSSW/L1_Emulator/CMSSW_7_5_0_pre4/"
+batch.cmsswDir = cmsswDir
 batch.additionalSetup = """## setup emulator wrapper
-cd /home/llr/cms/sauvan/L1_upgrade/L1TEmulatorWrapper/
+cd {0}
 source wrapenv
 cd -
-ln -s /home/llr/cms/sauvan/L1_upgrade/AnHiMa2/TriggerCommon/ ../
-"""
+ln -s {1}/TriggerCommon/ ../
+""".format(wrapperDir, baseDir)
 
 #batch.local = True
 
 #batch.cuts = [""]
 
-batch.additionalParameters = {"EmulatorParameters": "/home/llr/cms/sauvan/L1_upgrade/L1TEmulatorWrapper/data/caloStage2ParamsTrimming5_compressedCalib.txt",
-                              "CutsHoEFile": "/home/llr/cms/sauvan/L1_upgrade/AnHiMa2/TagAndProbe_Identification/data/cutsHoE_14.10.09.root",
+batch.additionalParameters = {"EmulatorParameters": "{}/data/caloStage2ParamsTrimming5_compressedCalib.txt".format(wrapperDir),
+                              "CutsHoEFile": "{}/TriggerCommon/data/cutsHoE_14.10.09.root".format(wrapperDir),
                               "CutsHoEHisto": "cutsEff05_eta_ET",
-                              "CutsShapeFile": "/home/llr/cms/sauvan/L1_upgrade/AnHiMa2/TagAndProbe_Identification/data/cutsShape_14.10.09.root",
+                              "CutsShapeFile": "{}/TriggerCommon/data/cutsShape_14.10.09.root".format(wrapperDir),
                               "CutsShapeHisto": "cutsEff05_eta_ET",
                               "ApplyCorr95":"False",
-                              "Corr95EtaStage2File":"/home/llr/cms/sauvan/L1_upgrade/AnHiMa2/TagAndProbe_Resolution/data/corr_vs_eta_Stage2_95pcEff.txt",
-                              "Corr95EtaStage1File":"/home/llr/cms/sauvan/L1_upgrade/AnHiMa2/TagAndProbe_Resolution/data/corr_vs_eta_Stage1_95pcEff.txt"
+                              "Corr95EtaStage2File":"{}/TriggerCommon/data/corr_vs_eta_Stage2_95pcEff.txt".format(wrapperDir),
+                              "Corr95EtaStage1File":"{}/TriggerCommon/data/corr_vs_eta_Stage1_95pcEff.txt".format(wrapperDir)
                              }
-
-
-
