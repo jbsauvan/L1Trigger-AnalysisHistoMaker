@@ -42,13 +42,13 @@ ln -s {1}/TriggerCommon/ ../
 #batch.cuts = [""]
 
 batch.additionalParameters = {"EmulatorParameters": "{}/data/caloStage2ParamsTrimming5.txt".format(wrapperDir),
-                              "CutsHoEFile": "{}/TriggerCommon/data/cutsHoE_14.10.09.root".format(wrapperDir),
+                              "CutsHoEFile": "{}/TriggerCommon/data/cutsHoE_14.10.09.root".format(baseDir),
                               "CutsHoEHisto": "cutsEff05_eta_ET",
-                              "CutsShapeFile": "{}/TriggerCommon/data/cutsShape_14.10.09.root".format(wrapperDir),
+                              "CutsShapeFile": "{}/TriggerCommon/data/cutsShape_14.10.09.root".format(baseDir),
                               "CutsShapeHisto": "cutsEff05_eta_ET",
                               "ApplyCorr95":"False",
-                              "Corr95EtaStage2File":"{}/TriggerCommon/data/corr_vs_eta_Stage2_95pcEff.txt".format(wrapperDir),
-                              "Corr95EtaStage1File":"{}/TriggerCommon/data/corr_vs_eta_Stage1_95pcEff.txt".format(wrapperDir)
+                              "Corr95EtaStage2File":"{}/TriggerCommon/data/corr_vs_eta_Stage2_95pcEff.txt".format(baseDir),
+                              "Corr95EtaStage1File":"{}/TriggerCommon/data/corr_vs_eta_Stage1_95pcEff.txt".format(baseDir)
                              }
 
 
