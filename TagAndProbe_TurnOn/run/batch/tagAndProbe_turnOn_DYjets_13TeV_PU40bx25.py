@@ -1,5 +1,6 @@
 from AnhimaBatchLauncher import AnhimaBatchLauncher
 import glob
+import os
 
 baseDir = os.environ["ANHIMA_BASE"]
 cmsswDir = os.environ["CMSSW_BASE"] 
