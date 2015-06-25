@@ -21,13 +21,16 @@ SRCPP = main.cpp\
 	Utilities.cpp\
 	Electron.cpp\
 	GenParticle.cpp\
+	GenJet.cpp\
 	ElectronFactory.cpp\
 	GenElectronFactory.cpp\
+	GenJetFactory.cpp\
 	L1TowerFactory.cpp\
 	L1EGammaFactory.cpp\
 	TriggerTools.cpp\
 	EventEGamma.cpp\
 	EventTagAndProbe.cpp\
+	EventTagAndProbeWithJets.cpp\
 	Analysis.cpp\
 	Event.cpp
 
