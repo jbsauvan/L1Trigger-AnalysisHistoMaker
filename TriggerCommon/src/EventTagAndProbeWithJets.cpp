@@ -66,8 +66,26 @@ void EventTagAndProbeWithJets::update()
 /*****************************************************************/
 {
     EventTagAndProbe::update();
+    removeJetElectronOverlap();
 }
 
+/*****************************************************************/
+void EventTagAndProbeWithJets::removeJetElectronOverlap()
+/*****************************************************************/
+{
+    m_genJetsWoElectrons.clear();
+    for(const auto& jet : genJets())
+    {
+        double mindr = 999.;
+        for(const auto& ele : genElectrons())
+        {
+            double dr = jet.DeltaR(ele);
+            if(dr<mindr) mindr = dr;
+        }       
+        if(jet.Pt()>30 && abs(jet.Eta())<4.5 && !(jet.emEnergy()/jet.Energy()>0.5 && mindr<0.4)) m_genJetsWoElectrons.push_back(&jet);
+    }
+
+}
 
 
 

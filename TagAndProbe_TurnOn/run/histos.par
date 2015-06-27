@@ -5,6 +5,7 @@ h1f 0 nevents ' Number of events ' 1 0.5 1.5
 h1f 1 npv ' N_{PV} ' 100 0.5 100.5
 
 h1f 2 shape ' shape ' 71 0.5 70.5
+h2f 3 jetEMenergy_vs_ElectronDeltaR ' #Delta R(electron,jet) ' 500 0. 5. 100 0. 1.
 
 
 ## Check reco
@@ -20,6 +21,8 @@ h1f 22 probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
 h1f 23 probeele_charge ' charge(probe) ' 3 -1.5 1.5
 1binvbh1f 24 probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
 1binvbh1f 25 probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+h1f 26 probeele_jetdr ' #Delta R(electron, jet) ' 50 0. 5.
+h1f 27 probeele_njets ' N_{jets} ' 6 0. 6.
 
 h1f 30 pairele_mass ' M(ee) ' 60 60. 120.
 h1f 31 pairele_pt   ' p_{T}(ee) ' 100 0. 100.
@@ -33,6 +36,8 @@ h1f 101 L1matched_probeele_eta ' #eta(probe) ' 30 -3. 3.
 h1f 102 L1matched_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
 1binvbh1f 104 L1matched_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
 1binvbh1f 105 L1matched_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+h1f 106 L1matched_probeele_jetdr ' #Delta R(electron, jet) ' 50 0. 5.
+h1f 107 L1matched_probeele_njets ' N_{jets} ' 6 0. 6.
 
 ## Check FG efficiency
 1binvbh1f 200 L1FG_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150.
@@ -40,6 +45,8 @@ h1f 201 L1FG_probeele_eta ' #eta(probe) ' 30 -3. 3.
 h1f 202 L1FG_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
 1binvbh1f 204 L1FG_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
 1binvbh1f 205 L1FG_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+h1f 206 L1FG_probeele_jetdr ' #Delta R(electronn jet) ' 50 0. 5.
+h1f 207 L1FG_probeele_njets ' N_{jets} ' 6 0. 6.
 
 ## Check H/E efficiency
 1binvbh1f 300 L1HoE_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150.
@@ -47,6 +54,8 @@ h1f 301 L1HoE_probeele_eta ' #eta(probe) ' 30 -3. 3.
 h1f 302 L1HoE_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
 1binvbh1f 304 L1HoE_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
 1binvbh1f 305 L1HoE_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+h1f 306 L1HoE_probeele_jetdr ' #Delta R(electronn jet) ' 50 0. 5.
+h1f 307 L1HoE_probeele_njets ' N_{jets} ' 6 0. 6.
 
 ## Check shape efficiency
 1binvbh1f 400 L1shape_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150.
@@ -54,6 +63,8 @@ h1f 401 L1shape_probeele_eta ' #eta(probe) ' 30 -3. 3.
 h1f 402 L1shape_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
 1binvbh1f 404 L1shape_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
 1binvbh1f 405 L1shape_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+h1f 406 L1shape_probeele_jetdr ' #Delta R(electronn jet) ' 50 0. 5.
+h1f 407 L1shape_probeele_njets ' N_{jets} ' 6 0. 6.
 
 ## Check iso efficiency
 1binvbh1f 500 L1iso_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150.
@@ -61,12 +72,16 @@ h1f 501 L1iso_probeele_eta ' #eta(probe) ' 30 -3. 3.
 h1f 502 L1iso_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
 1binvbh1f 504 L1iso_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
 1binvbh1f 505 L1iso_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+h1f 506 L1iso_probeele_jetdr ' #Delta R(electronn jet) ' 50 0. 5.
+h1f 507 L1iso_probeele_njets ' N_{jets} ' 6 0. 6.
 
 1binvbh1f 510 L1IDiso_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150.
 h1f 511 L1IDiso_probeele_eta ' #eta(probe) ' 30 -3. 3.
 h1f 512 L1IDiso_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
 1binvbh1f 514 L1IDiso_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
 1binvbh1f 515 L1IDiso_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+h1f 516 L1IDiso_probeele_jetdr ' #Delta R(electronn jet) ' 50 0. 5.
+h1f 517 L1IDiso_probeele_njets ' N_{jets} ' 6 0. 6.
 
 ## Check new H/E and shapes efficiency
 1binvbh1f 600 L1HoEnew_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150 
@@ -74,24 +89,32 @@ h1f 601 L1HoEnew_probeele_eta ' #eta(probe) ' 30 -3. 3.
 h1f 602 L1HoEnew_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
 1binvbh1f 604 L1HoEnew_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
 1binvbh1f 605 L1HoEnew_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+h1f 606 L1HoEnew_probeele_jetdr ' #Delta R(electronn jet) ' 50 0. 5.
+h1f 607 L1HoEnew_probeele_njets ' N_{jets} ' 6 0. 6.
 #
 1binvbh1f 610 L1ShapeNew_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150 
 h1f 611 L1ShapeNew_probeele_eta ' #eta(probe) ' 30 -3. 3.
 h1f 612 L1ShapeNew_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
 1binvbh1f 614 L1ShapeNew_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
 1binvbh1f 615 L1ShapeNew_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+h1f 616 L1ShapeNew_probeele_jetdr ' #Delta R(electronn jet) ' 50 0. 5.
+h1f 617 L1ShapeNew_probeele_njets ' N_{jets} ' 6 0. 6.
 #
 1binvbh1f 620 L1HoEShapeNew_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150 
 h1f 621 L1HoEShapeNew_probeele_eta ' #eta(probe) ' 30 -3. 3.
 h1f 622 L1HoEShapeNew_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
 1binvbh1f 624 L1HoEShapeNew_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
 1binvbh1f 625 L1HoEShapeNew_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+h1f 626 L1HoEShapeNew_probeele_jetdr ' #Delta R(electronn jet) ' 50 0. 5.
+h1f 627 L1HoEShapeNew_probeele_njets ' N_{jets} ' 6 0. 6.
 #
 1binvbh1f 630 L1FGHoEShapeNew_probeele_pt ' p_{T}(probe) ' 15 0. 5. 10. 15. 20. 25. 30. 35. 40. 45. 50. 60. 80. 110. 150 
 h1f 631 L1FGHoEShapeNew_probeele_eta ' #eta(probe) ' 30 -3. 3.
 h1f 632 L1FGHoEShapeNew_probeele_phi ' #phi(probe) ' 30 -3.1416 3.1416
 1binvbh1f 634 L1FGHoEShapeNew_probeele_bdt ' BDT(probe) ' 18 -1 -0.5 0. 0.2 0.4 0.5 0.6 0.7 0.8 0.85 0.9 0.93 0.95 0.96 0.97 0.98 0.99 1.0001
 1binvbh1f 635 L1FGHoEShapeNew_probeele_npu ' N_{PU} ' 17 20. 25. 30. 33. 35. 37. 38. 39. 40. 41. 42. 43. 45. 47. 50. 55. 60.
+h1f 636 L1FGHoEShapeNew_probeele_jetdr ' #Delta R(electronn jet) ' 50 0. 5.
+h1f 637 L1FGHoEShapeNew_probeele_njets ' N_{jets} ' 6 0. 6.
 
 ## Check reco scale and resolution
 1binvh1f 700  recoele_pRatio_vs_eta ' (p^{reco} - p^{gen})/p^{reco} ' 1000 -1. 1.

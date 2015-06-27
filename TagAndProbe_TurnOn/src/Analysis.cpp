@@ -196,6 +196,19 @@ void Analysis::fillHistos(int hTag)
     float weight = 1.;
     int hoffset  = 10000*hTag;
 
+    /// temp
+    for(const auto& jet : event().genJetsWoElectrons())
+    {
+        double mindr = 999.;
+        for(const auto& ele : event().genElectrons())
+        {
+            double dr = jet->DeltaR(ele);
+            if(dr<mindr) mindr = dr;
+        }       
+        m_histos.FillHisto(3+hoffset, mindr, jet->emEnergy()/jet->Energy(), weight, sysNum);
+    }
+
+
     m_histos.FillHisto(0+hoffset, 0.5, weight, sysNum);
     m_histos.FillHisto(1+hoffset, event().npv(), weight, sysNum);
 
@@ -213,6 +226,14 @@ void Analysis::fillHistos(int hTag)
         const RecoL1Electron& tag   = z[0];
         const RecoL1Electron& probe = z[1];
 
+        // compute DeltaR between electron and closest generated jet
+        double mindr = 999.;
+        for(const auto& jet : event().genJetsWoElectrons())
+        {
+            double dr = jet->DeltaR(probe);
+            if(dr<mindr) mindr = dr;
+        }
+
         m_histos.FillHisto(10+hoffset, tag.Pt(), weight, sysNum);
         m_histos.FillHisto(11+hoffset, tag.Eta(), weight, sysNum);
         m_histos.FillHisto(12+hoffset, tag.Phi(), weight, sysNum);
@@ -225,6 +246,8 @@ void Analysis::fillHistos(int hTag)
         m_histos.FillHisto(23+hoffset, probe.charge(), weight, sysNum);
         m_histos.FillHisto(24+hoffset, probe.bdt(), weight, sysNum);
         m_histos.FillHisto(25+hoffset, event().npu(), weight, sysNum);
+        m_histos.FillHisto(26+hoffset, mindr, weight, sysNum);
+        m_histos.FillHisto(27+hoffset, event().genJetsWoElectrons().size(), weight, sysNum);
 
         m_histos.FillHisto(30+hoffset, z.M(), weight, sysNum);
         m_histos.FillHisto(31+hoffset, z.Pt(), weight, sysNum);
@@ -277,6 +300,8 @@ void Analysis::fillHistos(int hTag)
             m_histos.FillHisto(102+hoffset, probe.Phi(), weight, sysNum);
             m_histos.FillHisto(104+hoffset, probe.bdt(), weight, sysNum);
             m_histos.FillHisto(105+hoffset, event().npu(), weight, sysNum);
+            m_histos.FillHisto(106+hoffset, mindr, weight, sysNum);
+            m_histos.FillHisto(107+hoffset, event().genJetsWoElectrons().size(), weight, sysNum);
             //
             if(l1eg.hwQual()&0x1) // check FG bit
             {
@@ -285,6 +310,8 @@ void Analysis::fillHistos(int hTag)
                 m_histos.FillHisto(202+hoffset, probe.Phi(), weight, sysNum);
                 m_histos.FillHisto(204+hoffset, probe.bdt(), weight, sysNum);
                 m_histos.FillHisto(205+hoffset, event().npu(), weight, sysNum);
+                m_histos.FillHisto(206+hoffset, mindr, weight, sysNum);
+                m_histos.FillHisto(207+hoffset, event().genJetsWoElectrons().size(), weight, sysNum);
             }
             if( (l1eg.hwQual()&0x1) && (l1eg.hwQual()&0x2) ) // check FG+H/E bits
             {
@@ -293,6 +320,8 @@ void Analysis::fillHistos(int hTag)
                 m_histos.FillHisto(302+hoffset, probe.Phi(), weight, sysNum);
                 m_histos.FillHisto(304+hoffset, probe.bdt(), weight, sysNum);
                 m_histos.FillHisto(305+hoffset, event().npu(), weight, sysNum);
+                m_histos.FillHisto(306+hoffset, mindr, weight, sysNum);
+                m_histos.FillHisto(307+hoffset, event().genJetsWoElectrons().size(), weight, sysNum);
             }
             if( (l1eg.hwQual()&0x1) && (l1eg.hwQual()&0x2) && (l1eg.hwQual()&0x4) ) // check FG+H/E+shape bits
             {
@@ -301,6 +330,8 @@ void Analysis::fillHistos(int hTag)
                 m_histos.FillHisto(402+hoffset, probe.Phi(), weight, sysNum);
                 m_histos.FillHisto(404+hoffset, probe.bdt(), weight, sysNum);
                 m_histos.FillHisto(405+hoffset, event().npu(), weight, sysNum);
+                m_histos.FillHisto(406+hoffset, mindr, weight, sysNum);
+                m_histos.FillHisto(407+hoffset, event().genJetsWoElectrons().size(), weight, sysNum);
             }
             if( l1eg.hwIso() ) // check iso bit 
             {
@@ -309,6 +340,8 @@ void Analysis::fillHistos(int hTag)
                 m_histos.FillHisto(502+hoffset, probe.Phi(), weight, sysNum);
                 m_histos.FillHisto(504+hoffset, probe.bdt(), weight, sysNum);
                 m_histos.FillHisto(505+hoffset, event().npu(), weight, sysNum);
+                m_histos.FillHisto(506+hoffset, mindr, weight, sysNum);
+                m_histos.FillHisto(507+hoffset, event().genJetsWoElectrons().size(), weight, sysNum);
             }
             //if( (hTag==0 && (l1eg.hwQual()&0x1) && passHoE(l1eg) && passShape(l1eg) && l1eg.hwIso() )
             if( (hTag==0 && (l1eg.hwQual()&0x1) && (l1eg.hwQual()&0x2) && passShape(l1eg, m_shapeWorkingPoint) && l1eg.hwIso() )
@@ -320,6 +353,8 @@ void Analysis::fillHistos(int hTag)
                 m_histos.FillHisto(512+hoffset, probe.Phi(), weight, sysNum);
                 m_histos.FillHisto(514+hoffset, probe.bdt(), weight, sysNum);
                 m_histos.FillHisto(515+hoffset, event().npu(), weight, sysNum);
+                m_histos.FillHisto(516+hoffset, mindr, weight, sysNum);
+                m_histos.FillHisto(517+hoffset, event().genJetsWoElectrons().size(), weight, sysNum);
             }
             //if( hTag==0 && passHoE(l1eg) ) // check H/E new
             if( hTag==0 && (l1eg.hwQual()&0x2) )
@@ -329,6 +364,8 @@ void Analysis::fillHistos(int hTag)
                 m_histos.FillHisto(602+hoffset, probe.Phi(), weight, sysNum);
                 m_histos.FillHisto(604+hoffset, probe.bdt(), weight, sysNum);
                 m_histos.FillHisto(605+hoffset, event().npu(), weight, sysNum);
+                m_histos.FillHisto(606+hoffset, mindr, weight, sysNum);
+                m_histos.FillHisto(607+hoffset, event().genJetsWoElectrons().size(), weight, sysNum);
             }
             if( hTag==0 && passShape(l1eg,m_shapeWorkingPoint) ) // check shape new
             //if( hTag==0 && (l1eg.hwQual()&0x4) )
@@ -338,6 +375,8 @@ void Analysis::fillHistos(int hTag)
                 m_histos.FillHisto(612+hoffset, probe.Phi(), weight, sysNum);
                 m_histos.FillHisto(614+hoffset, probe.bdt(), weight, sysNum);
                 m_histos.FillHisto(615+hoffset, event().npu(), weight, sysNum);
+                m_histos.FillHisto(616+hoffset, mindr, weight, sysNum);
+                m_histos.FillHisto(617+hoffset, event().genJetsWoElectrons().size(), weight, sysNum);
             }
             //if( hTag==0 && passHoE(l1eg) && passShape(l1eg) ) // check H/E and shape new
             if( hTag==0 && (l1eg.hwQual()&0x2) && passShape(l1eg,m_shapeWorkingPoint) )
@@ -348,6 +387,8 @@ void Analysis::fillHistos(int hTag)
                 m_histos.FillHisto(622+hoffset, probe.Phi(), weight, sysNum);
                 m_histos.FillHisto(624+hoffset, probe.bdt(), weight, sysNum);
                 m_histos.FillHisto(625+hoffset, event().npu(), weight, sysNum);
+                m_histos.FillHisto(626+hoffset, mindr, weight, sysNum);
+                m_histos.FillHisto(627+hoffset, event().genJetsWoElectrons().size(), weight, sysNum);
             }
             //if( hTag==0 && (l1eg.hwQual()&0x1) && passHoE(l1eg) && passShape(l1eg) ) // check FG,  H/E new and shape new
             if( hTag==0 && (l1eg.hwQual()&0x1) && (l1eg.hwQual()&0x2) && passShape(l1eg,m_shapeWorkingPoint) )
@@ -358,6 +399,8 @@ void Analysis::fillHistos(int hTag)
                 m_histos.FillHisto(632+hoffset, probe.Phi(), weight, sysNum);
                 m_histos.FillHisto(634+hoffset, probe.bdt(), weight, sysNum);
                 m_histos.FillHisto(635+hoffset, event().npu(), weight, sysNum);
+                m_histos.FillHisto(636+hoffset, mindr, weight, sysNum);
+                m_histos.FillHisto(637+hoffset, event().genJetsWoElectrons().size(), weight, sysNum);
             }
 
             double ptRatio = (l1egPt-probe.Pt())/probe.Pt();

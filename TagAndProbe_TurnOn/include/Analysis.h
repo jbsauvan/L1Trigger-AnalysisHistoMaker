@@ -22,7 +22,7 @@
 #define ANALYSIS_H
 
 #include "IAnalysis.h"
-#include "EventTagAndProbe.h"
+#include "EventTagAndProbeWithJets.h"
 #include "EventAware.h"
 
 #include <string>
@@ -34,7 +34,7 @@ class TH2F;
 namespace AnHiMa
 {
 
-    class Analysis: public IAnalysis, EventAware<EventTagAndProbe>
+    class Analysis: public IAnalysis, EventAware<EventTagAndProbeWithJets>
     {
         public:
 

@@ -41,9 +41,13 @@ namespace AnHiMa
             void update();
             
             const std::vector<GenJet>& genJets() const {return m_genJetFactory.data();}
+            const std::vector<const GenJet*>& genJetsWoElectrons() const {return m_genJetsWoElectrons;}
 
         private:
+            void removeJetElectronOverlap();
+
             GenJetFactory m_genJetFactory;
+            std::vector<const GenJet*> m_genJetsWoElectrons;
 
 
     };
