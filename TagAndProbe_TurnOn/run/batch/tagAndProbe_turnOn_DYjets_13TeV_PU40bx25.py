@@ -7,7 +7,7 @@ cmsswDir = os.environ["CMSSW_BASE"]
 wrapperDir = os.environ["EMUL_WRAPPER_BASE"]
 
 inputBaseDir = "/data_CMS/cms/sauvan/L1/Ntuples/EGammaStage1Stage2"
-inputTemplate = "v_3_2014-10-09/tree_electron_stage1_stage2_*.root"
+inputTemplate = "v_4_2015-06-23/tree_electronjets_stage1_stage2_*.root"
 datasets = []
 datasets.append("DYJetsToLL_M-50_13TeV-pythia6/Fall13dr-tsg_PU40bx25_POSTLS162_V2-v1")
 
@@ -23,12 +23,14 @@ batch.exe = "{}/TagAndProbe_TurnOn/analysis.exe".format(baseDir)
 batch.name = "tagAndProbe_turnOn_DYjets_13TeV_PU40bx25"
 batch.inputFiles = inputFiles
 batch.tree = "electronNtuplizer_electronTree"
-batch.outputDirectory = "/data_CMS/cms/sauvan/L1/EmulatorEra/tagAndProbe/turnOn/DYjets_13TeV_PU40bx25/"
-batch.outputFile = "tagAndProbe_turnOn_DYjets_13TeV_PU40bx25.root"
+batch.outputDirectory = "/data_CMS/cms/sauvan/L1/EmulatorEra/tagAndProbe/turnOn/Test9x3Filtering/DYjets_13TeV_PU40bx25/"
+batch.outputFile = "tagAndProbe_turnOn_DYjets_13TeV_PU40bx25_Test9x3Filtering.root"
+#batch.outputDirectory = "/data_CMS/cms/sauvan/L1/EmulatorEra/tagAndProbe/turnOn/TestWithJets/DYjets_13TeV_PU40bx25/"
+#batch.outputFile = "tagAndProbe_turnOn_DYjets_13TeV_PU40bx25.root"
 batch.histoParameters = "../histos.par"
 batch.histoTag = "Histos"
 batch.nFilesPerJob = 2
-batch.queue = "cms"
+batch.queue = "llr"
 batch.cmsswDir = cmsswDir
 batch.additionalSetup = """## setup emulator wrapper
 cd {0}
