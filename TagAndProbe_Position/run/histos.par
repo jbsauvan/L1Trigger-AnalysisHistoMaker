@@ -1,0 +1,53 @@
+Histos: TagAndProbe_Position_Stage2_, TagAndProbe_Position_Stage2_1o3TT_(10000), TagAndProbe_Position_Stage2_1o2TT_(20000), TagAndProbe_Position_Stage2_1o8Lin_(30000), TagAndProbe_Position_Stage2_1o4Lin_(40000), TagAndProbe_Position_Stage2_1o2Lin_(50000), TagAndProbe_Position_Stage1_(60000)
+
+# General event 
+h1f 0 nevents ' Number of events ' 1 0.5 1.5
+h1f 1 npv ' N_{PV} ' 100 0.5 100.5
+
+## Check reco
+h1f 10 tagele_pt ' p_{T}(tag) ' 100 0. 100.
+h1f 11 tagele_eta ' #eta(tag) ' 60 -3. 3.
+h1f 12 tagele_phi ' #phi(tag) ' 60 -3.1416 3.1416
+h1f 13 tagele_charge ' charge(tag) ' 3 -1.5 1.5
+h1f 14 tagele_bdt ' BDT(tag) ' 100 -1. 1.
+
+h1f 20 probeele_pt ' p_{T}(probe) ' 100 0. 100.
+h1f 21 probeele_eta ' #eta(probe) ' 60 -3. 3.
+h1f 22 probeele_phi ' #phi(probe) ' 60 -3.1416 3.1416
+h1f 23 probeele_charge ' charge(probe) ' 3 -1.5 1.5
+h1f 24 probeele_bdt ' BDT(probe) ' 100 -1. 1.
+
+h1f 30 pairele_mass ' M(ee) ' 60 60. 120.
+h1f 31 pairele_pt   ' p_{T}(ee) ' 100 0. 100.
+h1f 32 pairele_y   ' y(ee) ' 60 -3. 3.
+h1f 33 pairele_phi   ' #phi(ee) ' 60 -3.1416 3.1416
+
+
+## Check reco-L1 matching
+h1f 100 L1matched_probeele_pt ' p_{T}(probe) ' 100 0. 100.
+h1f 101 L1matched_probeele_eta ' #eta(probe) ' 60 -3. 3.
+h1f 102 L1matched_probeele_phi ' #phi(probe) ' 60 -3.1416 3.1416
+h1f 104 L1matched_probeele_bdt ' BDT(probe) ' 100 -1. 1.
+
+
+## Position vs track
+1binvh1f 200  L1matched_probeele_etaDiffTrk_vs_eta ' (#eta^{L1} - #eta^{reco} ' 1000 -1. 1.
+ETA 26 0. 0.087 0.174 0.261 0.348 0.435 0.522 0.609 0.696 0.783 0.87 0.957 1.044 1.131 1.218 1.305 1.392 1.479 1.566 1.653 1.74 1.83 1.93 2.043 2.172 2.322 2.5
+#
+1binvh1f 250  L1matched_probeele_phiDiffTrk_vs_eta ' (#phi^{L1} - #phi^{reco} ' 1000 -1. 1.
+ETA 26 0. 0.087 0.174 0.261 0.348 0.435 0.522 0.609 0.696 0.783 0.87 0.957 1.044 1.131 1.218 1.305 1.392 1.479 1.566 1.653 1.74 1.83 1.93 2.043 2.172 2.322 2.5
+#
+## Position vs cluster
+1binvh1f 300  L1matched_probeele_etaDiffCal_vs_eta ' (#eta^{L1} - #eta^{reco} ' 1000 -1. 1.
+ETA 26 0. 0.087 0.174 0.261 0.348 0.435 0.522 0.609 0.696 0.783 0.87 0.957 1.044 1.131 1.218 1.305 1.392 1.479 1.566 1.653 1.74 1.83 1.93 2.043 2.172 2.322 2.5
+#
+1binvh1f 350  L1matched_probeele_phiDiffCal_vs_eta ' (#phi^{L1} - #phi^{reco} ' 1000 -1. 1.
+ETA 26 0. 0.087 0.174 0.261 0.348 0.435 0.522 0.609 0.696 0.783 0.87 0.957 1.044 1.131 1.218 1.305 1.392 1.479 1.566 1.653 1.74 1.83 1.93 2.043 2.172 2.322 2.5
+#
+## 2D histos
+h2f 400 L1matched_probeele_etal1_vs_etacalo ' #eta_{L1} vs #eta_{calo} ' 3000 0. 3. 3000 0. 3.
+h2f 401 L1matched_probeele_etal1_vs_etal1ref ' #eta_{L1} vs #eta_{L1, ref} ' 3000 0. 3. 3000 0. 3.
+
+
+end_Histos
+
